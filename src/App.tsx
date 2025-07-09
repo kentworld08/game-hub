@@ -16,7 +16,7 @@ function App() {
   const color = useColorModeValue("black", "white");
 
   return (
-    <Box bg={bg} color={color}>
+    <Box bg={bg} color={color} px={4}>
       <Grid
         templateAreas={{
           base: `"nav" "main"`,
@@ -27,13 +27,9 @@ function App() {
           <NavBar />
         </GridItem>
         <Show when={showAside}>
-          <GridItem area="aside" bg="gold">
-            Aside
-          </GridItem>
+          <GridItem area="aside">Aside</GridItem>
         </Show>
-        <GridItem area="main" bg="dodgerblue">
-          Main
-        </GridItem>
+        <GridItem area="main">Main</GridItem>
       </Grid>
     </Box>
   );
