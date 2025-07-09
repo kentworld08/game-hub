@@ -9,6 +9,7 @@ import {
 import "./App.css";
 import NavBar from "./components/NavBar";
 import { useColorModeValue } from "./components/ui/color-mode";
+import GameGrid from "./components/GameGrid";
 
 function App() {
   const showAside = useBreakpointValue({ base: false, lg: true });
@@ -29,7 +30,9 @@ function App() {
         <Show when={showAside}>
           <GridItem area="aside">Aside</GridItem>
         </Show>
-        <GridItem area="main">Main</GridItem>
+        <GridItem area="main">
+          <GameGrid />
+        </GridItem>
       </Grid>
     </Box>
   );
