@@ -1,12 +1,22 @@
-import { Grid, GridItem, Show, useBreakpointValue } from "@chakra-ui/react";
+import {
+  Box,
+  Grid,
+  GridItem,
+  Show,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 
 import "./App.css";
 import NavBar from "./components/NavBar";
+import { useColorModeValue } from "./components/ui/color-mode";
 
 function App() {
   const showAside = useBreakpointValue({ base: false, lg: true });
+  const bg = useColorModeValue("white", "gray.900");
+  const color = useColorModeValue("black", "white");
+
   return (
-    <>
+    <Box bg={bg} color={color}>
       <Grid
         templateAreas={{
           base: `"nav" "main"`,
@@ -25,7 +35,7 @@ function App() {
           Main
         </GridItem>
       </Grid>
-    </>
+    </Box>
   );
 }
 
