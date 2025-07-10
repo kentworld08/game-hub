@@ -14,9 +14,13 @@ import GenreList from "./components/GenreList";
 import { useState } from "react";
 import type { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
+import type { Platform } from "./hooks/useGames";
 
 function App() {
   const [selectedGenre, setSeletedGenre] = useState<Genre | null>(null);
+  const [selectedPlatform, setSeletedPlatform] = useState<Platform | null>(
+    null
+  );
 
   // show the aside (GenreList) only on large screens
   const showAside = useBreakpointValue({ base: false, lg: true });
@@ -47,8 +51,14 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area="main">
-          <PlatformSelector />
-          <GameGrid selectedGenre={selectedGenre} />
+          <PlatformSelector
+            selectedPlatform={selectedPlatform}
+            onSelectPlatform={(platorm) => setSeletedPlatform(platorm)}
+          />
+          <GameGrid
+            selectedGenre={selectedGenre}
+            selectedPlatform={selectedPlatform}
+          />
         </GridItem>
       </Grid>
     </Stack>
