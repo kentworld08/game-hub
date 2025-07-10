@@ -1,8 +1,8 @@
 import {
-  Box,
   Grid,
   GridItem,
   Show,
+  Stack,
   useBreakpointValue,
 } from "@chakra-ui/react";
 
@@ -10,6 +10,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import { useColorModeValue } from "./components/ui/color-mode";
 import GameGrid from "./components/GameGrid";
+import GenreList from "./components/GenreList";
 
 function App() {
   const showAside = useBreakpointValue({ base: false, lg: true });
@@ -17,7 +18,7 @@ function App() {
   const color = useColorModeValue("black", "white");
 
   return (
-    <Box bg={bg} color={color} px={4}>
+    <Stack bg={bg} color={color} px={4}>
       <Grid
         templateAreas={{
           base: `"nav" "main"`,
@@ -28,13 +29,15 @@ function App() {
           <NavBar />
         </GridItem>
         <Show when={showAside}>
-          <GridItem area="aside">Aside</GridItem>
+          <GridItem area="aside">
+            <GenreList />
+          </GridItem>
         </Show>
         <GridItem area="main">
           <GameGrid />
         </GridItem>
       </Grid>
-    </Box>
+    </Stack>
   );
 }
 
