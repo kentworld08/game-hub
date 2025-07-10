@@ -11,8 +11,13 @@ import NavBar from "./components/NavBar";
 import { useColorModeValue } from "./components/ui/color-mode";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
+import { useState } from "react";
+import type { Genre } from "./hooks/useGenres";
 
 function App() {
+  const [selectedGenre, setSeletedGenre] = useState<Genre | null>(null);
+
+  // show the aside (GenreList) only on large screens
   const showAside = useBreakpointValue({ base: false, lg: true });
   const bg = useColorModeValue("white", "gray.900");
   const color = useColorModeValue("black", "white");
@@ -34,11 +39,11 @@ function App() {
         </GridItem>
         <Show when={showAside}>
           <GridItem area="aside">
-            <GenreList />
+            <GenreList onselectGenre={(genre) => setSeletedGenre(genre)} />
           </GridItem>
         </Show>
         <GridItem area="main">
-          <GameGrid />
+          <GameGrid selectedGenre={selectedGenre} />
         </GridItem>
       </Grid>
     </Stack>
