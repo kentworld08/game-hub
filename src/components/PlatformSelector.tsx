@@ -28,7 +28,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
               <Menu.Item
                 onClick={() => onSelectPlatform(platform)}
                 key={platform.id}
-                value="new-txt"
+                value={platform.name}
               >
                 {platform.name}
               </Menu.Item>
