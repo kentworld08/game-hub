@@ -14,7 +14,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button variant="outline" size="sm" bg="black">
           <HStack>
             <Text>{selectedPlatform?.name || "platforms"}</Text>{" "}
             <BsChevronDown />
