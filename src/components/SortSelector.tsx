@@ -19,7 +19,7 @@ const SortSelector = ({ onSelectSortOrder }: Props) => {
       <Menu.Trigger asChild>
         <Button variant="outline" size="sm" bg="black">
           <HStack>
-            <Text>platforms</Text> <BsChevronDown />
+            <Text color="white">platforms</Text> <BsChevronDown color="white" />
           </HStack>
         </Button>
       </Menu.Trigger>
