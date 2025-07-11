@@ -1,5 +1,5 @@
 import useGames from "@/hooks/useGames";
-import { SimpleGrid, Text } from "@chakra-ui/react";
+import { Button, SimpleGrid, Text } from "@chakra-ui/react";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
@@ -13,8 +13,21 @@ interface Props {
 const GameGrid = ({ gameQuery }: Props) => {
   const { data, error, isLoading } = useGames(gameQuery);
   const Skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
-  if (error) return <Text color="red.500">{error}</Text>;
 
+  if (!data || data.length === 0 || error) {
+    return (
+      <Text
+        fontSize="2xl"
+        textAlign="center"
+        marginTop={28}
+        color="red.500"
+        zIndex={5}
+      >
+        No games found {error}{" "}
+        <Button onClick={() => window.location.reload()}>Try again</Button>
+      </Text>
+    );
+  }
   return (
     <SimpleGrid
       columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
