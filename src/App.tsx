@@ -47,7 +47,7 @@ function App() {
           lg: "200px 1fr",
         }}
       >
-        <GridItem area="nav">
+        <GridItem area="nav" position="sticky" top={0} zIndex={5} bg={bg}>
           <NavBar
             onSearch={(searchTerm) =>
               setGameQuery({ ...gameQuery, searchTerm })
@@ -55,7 +55,7 @@ function App() {
           />
         </GridItem>
         <Show when={showAside}>
-          <GridItem area="aside">
+          <GridItem area="aside" position="fixed" top={20} zIndex={5} bg={bg}>
             <GenreList
               onselectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
               selectedGenre={gameQuery.genre}
@@ -63,7 +63,16 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area="main">
-          <Box spaceY={5} paddingLeft={2} marginBottom={5}>
+          <Box
+            width="100%"
+            spaceY={5}
+            paddingLeft={2}
+            paddingBottom={2}
+            position="fixed"
+            top={20}
+            zIndex={5}
+            bg={bg}
+          >
             <GameHeading GameQuery={gameQuery} />
             <HStack>
               <PlatformSelector

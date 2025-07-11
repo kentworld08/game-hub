@@ -22,7 +22,12 @@ const GenreList = ({ onselectGenre, selectedGenre }: Props) => {
       <Heading fontWeight="bold" marginBottom={3} fontSize="2xl">
         Genre
       </Heading>
-      <List.Root>
+      <List.Root
+        overflow="auto"
+        maxHeight="80vh"
+        paddingBottom={5}
+        scrollbar="hidden"
+      >
         {data.map((genre) => (
           <ListItem key={genre.id} paddingY="5px" listStyle="none">
             <HStack>
