@@ -3,9 +3,10 @@ import { BsChevronDown } from "react-icons/bs";
 
 interface Props {
   onSelectSortOrder: (order: string) => void;
+  selectedOrder: string;
 }
 
-const SortSelector = ({ onSelectSortOrder }: Props) => {
+const SortSelector = ({ onSelectSortOrder, selectedOrder }: Props) => {
   const sortOrders = [
     { value: "", label: "Relevance" },
     { value: "-added", label: "Date added" },
@@ -19,7 +20,8 @@ const SortSelector = ({ onSelectSortOrder }: Props) => {
       <Menu.Trigger asChild>
         <Button variant="outline" size="sm" bg="black">
           <HStack>
-            <Text color="white">platforms</Text> <BsChevronDown color="white" />
+            <Text color="white">Order by: {selectedOrder || "Relevance"}</Text>{" "}
+            <BsChevronDown color="white" />
           </HStack>
         </Button>
       </Menu.Trigger>
