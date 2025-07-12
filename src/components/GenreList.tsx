@@ -28,7 +28,7 @@ const GenreList = ({ onselectGenre, selectedGenre }: Props) => {
         paddingBottom={5}
         scrollbar="hidden"
       >
-        {data.map((genre) => (
+        {data?.results.map((genre) => (
           <ListItem key={genre.id} paddingY="5px" listStyle="none">
             <HStack>
               <Image

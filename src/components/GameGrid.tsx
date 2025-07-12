@@ -14,20 +14,18 @@ const GameGrid = ({ gameQuery }: Props) => {
   const { data, error, isLoading } = useGames(gameQuery);
   const Skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
 
-  if (!data || data.length === 0 || error) {
-    return (
-      <Text
-        fontSize="2xl"
-        textAlign="center"
-        marginTop={28}
-        color="red.500"
-        zIndex={5}
-      >
-        No games found {error}{" "}
-        <Button onClick={() => window.location.reload()}>Try again</Button>
-      </Text>
-    );
-  }
+  if (error)
+    <Text
+      fontSize="2xl"
+      textAlign="center"
+      marginTop={28}
+      color="red.500"
+      zIndex={5}
+    >
+      No games found {error.message}{" "}
+      <Button onClick={() => window.location.reload()}>Try again</Button>
+    </Text>;
+
   return (
     <SimpleGrid
       columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
@@ -41,7 +39,7 @@ const GameGrid = ({ gameQuery }: Props) => {
             <GameCardSkeleton />
           </GameCardContainer>
         ))}
-      {data.map((game) => (
+      {data?.results.map((game) => (
         <GameCardContainer key={game.id}>
           <GameCard game={game} />
         </GameCardContainer>
