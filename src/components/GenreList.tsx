@@ -11,10 +11,10 @@ import {
 
 interface Props {
   onselectGenre: (genreid: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ onselectGenre, selectedGenre }: Props) => {
+const GenreList = ({ onselectGenre, selectedGenreId }: Props) => {
   const { data } = useGenres();
 
   return (
@@ -44,7 +44,7 @@ const GenreList = ({ onselectGenre, selectedGenre }: Props) => {
                 padding={0}
                 variant="ghost"
                 fontSize="sm"
-                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+                fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
               >
                 {genre.name}
               </Button>
