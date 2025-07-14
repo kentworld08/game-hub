@@ -32,7 +32,7 @@ const GameGrid = () => {
       {isLoading &&
         Skeletons.map((skeleton) => (
           <GameCardContainer key={skeleton}>
-            <GameCardSkeleton />
+            <GameCardSkeleton height="200px" />
           </GameCardContainer>
         ))}
       {data?.results.map((game) => (

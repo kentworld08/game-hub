@@ -6,7 +6,7 @@ export const ErrorPage = () => {
   const error = useRouteError();
   return (
     <>
-      <GridItem area="nav" position="sticky" top={0} zIndex={5} bg={"gray.900"}>
+      <GridItem area="nav" position="sticky" top={0} zIndex={5}>
         <NavBar />
       </GridItem>
       <Box padding={5}>

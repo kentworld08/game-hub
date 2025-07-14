@@ -19,7 +19,7 @@ const HomePage = () => {
   const bg = useColorModeValue("white", "gray.900");
   const color = useColorModeValue("black", "white");
   return (
-    <Stack bg={bg} color={color} px={4}>
+    <Stack bg={bg} color={color}>
       <Grid
         templateAreas={{
           base: `"main"`,
@@ -37,12 +37,12 @@ const HomePage = () => {
             top={28}
             zIndex={5}
             bg={bg}
-            padding={5}
+            padding={6}
           >
             <GenreList />
           </GridItem>
         </Show>
-        <GridItem area="main" paddingLeft={5}>
+        <GridItem area="main" padding={5}>
           <Box
             width="100%"
             spaceY={5}
