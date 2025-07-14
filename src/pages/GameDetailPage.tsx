@@ -2,17 +2,26 @@ import ExpandableText from "@/components/ExpandableText";
 import GameAttributes from "@/components/GameAttributes";
 import GameScreenshots from "@/components/GameScreenshots";
 import GameTrailer from "@/components/GameTrailer";
+import { useColorModeValue } from "@/components/ui/color-mode";
 import useGame from "@/hooks/useGame";
 import { GridItem, Heading, SimpleGrid, Spinner } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 
 const GameDetailPage = () => {
+  const bg = useColorModeValue("white", "gray.900");
+  const color = useColorModeValue("black", "white");
   const { slug } = useParams();
   const { data: game, isLoading, error } = useGame(slug!);
   if (isLoading) return <Spinner />;
   if (error || !game) throw error;
   return (
-    <SimpleGrid padding={7} columns={{ base: 1, md: 2 }} spaceX={5}>
+    <SimpleGrid
+      padding={7}
+      columns={{ base: 1, md: 2 }}
+      spaceX={5}
+      bg={bg}
+      color={color}
+    >
       <GridItem>
         <Heading>{game.name}</Heading>
         <ExpandableText>{game.description_raw}</ExpandableText>
